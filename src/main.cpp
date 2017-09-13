@@ -1,14 +1,15 @@
 #include <Arduino.h>
-#include <joystick.h>
+#include <Joystick.h>
 
 // Create the Joystick
 Joystick_ joystick;
 
-#define PotPin 4
-#define IrPin 5
+#define PotPin A1
+#define IrPin A3
 #define ReedPin 6
 #define RightBrake 7
 #define LeftBrake 8
+#define reset 9
 
 
 
@@ -16,30 +17,27 @@ void setup() {
     //activate internal pull ups
     pinMode(RightBrake, INPUT_PULLUP);
     pinMode(LeftBrake, INPUT_PULLUP);
+      pinMode(Reset, INPUT_PULLUP);
 
     //initialize joystick library
     joystick.begin();
 }
 
 //function to set button states
-void Button(int input) {
+void Button(int input,int num) {
   if (input == 1) {
-    joystick.pressButton(input);
-    joystick.releaseButton(input);
+    joystick.pressButton(num);
   }
   else {
-    joystick.pressButton(input);
+        joystick.releaseButton(num);
   }
 }
 
-
-
-
 void loop() {
-
   joystick.setXAxis(analogRead(PotPin));
-  joystick.setYAxisT(analogRead(IrPin));
+  joystick.setYAxis(analogRead(IrPin));
   joystick.setZAxis(analogRead(ReedPin));
-  Button(RightBrake);
-  Button(LeftBrake);
+  Button(DigitalRead(RightBrake), 1);
+  Button(DigitalRead(LeftBrake), 2);
+  Button(DigitalRead(Reset), 3);
 }
