@@ -36,8 +36,8 @@ void Button(int input,int num) {
 void loop() {
   joystick.setXAxis(analogRead(PotPin));
   joystick.setYAxis(analogRead(IrPin));
-  joystick.setZAxis(analogRead(ReedPin));
-  Button(DigitalRead(RightBrake), 1);
-  Button(DigitalRead(LeftBrake), 2);
-  Button(DigitalRead(Reset), 3);
+  Button(digitalRead(RightBrake), 1);
+  Button(digitalRead(LeftBrake), 2);
+  Button(digitalRead(Reset), 3);
+  Button(digitalRead(ReedPin), 4);
 }
