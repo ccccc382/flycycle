@@ -4,11 +4,11 @@
 // Create the Joystick
 Joystick_ joystick;
 
-#define PotPin A1
-#define IrPin A3
-#define ReedPin 6
-#define RightBrake 7
-#define LeftBrake 8
+#define PotPin A0
+#define IrPin A2
+#define ReedPin 8
+#define RightBrake 3
+#define LeftBrake 4
 #define reset 9
 
 
