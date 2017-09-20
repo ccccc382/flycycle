@@ -9,7 +9,7 @@ Joystick_ joystick;
 #define ReedPin 8
 #define RightBrake 3
 #define LeftBrake 4
-#define reset 9
+#define Reset 9
 
 
 
@@ -17,7 +17,7 @@ void setup() {
     //activate internal pull ups
     pinMode(RightBrake, INPUT_PULLUP);
     pinMode(LeftBrake, INPUT_PULLUP);
-      pinMode(Reset, INPUT_PULLUP);
+    pinMode(Reset, INPUT_PULLUP);
 
     //initialize joystick library
     joystick.begin();
